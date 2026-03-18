@@ -114,7 +114,7 @@ Each entry has exactly **1 direct + 2 adjacent + 2 opposing** conditions.
 
 ---
 
-## Known Limitations & Future Changes (Post-Midterm)
+## Known Limitations & Future Changes (Post-Midterm, We can discuss these details later)
 
 ### 1. Multiple v_s per statement → unbalanced ASR comparison
 - Statements with more basic values produce more attack conditions
@@ -122,19 +122,19 @@ Each entry has exactly **1 direct + 2 adjacent + 2 opposing** conditions.
 - ASR comparison across value types may be confounded by unequal sample sizes
 - **Planned fix:** Restrict to a single primary v_s per statement (option 3 below)
 
-### 2. Option 3: Force single primary v_s
+### 2. Possible alteration: Force single primary v_s
 - Re-label with a prompt like: "Which ONE basic value is most central to this statement?"
 - Flat (not hierarchical) — consistent with Schwartz's theory where basic values are the fundamental unit
 - Keep original multi-value labels as metadata
 - Each statement then produces exactly 5 conditions → clean apples-to-apples comparison
 
-### 3. Reframing multi-HO statements
+### 3. Possible alteration: Reframing multi-HO statements
 - Idea from Jimin: for the 324 dropped statements, use an LLM to rewrite them so they clearly encode a single value
 - Pros: nearly doubles dataset; more value diversity
 - Cons: adds synthetic generation layer; weakens "real civic discourse" claim
 - **Decision:** Treat as stretch goal / ablation. Compare results on natural vs. reframed statements
 
-### 4. Labeling prompt did not enforce hierarchy
+### 4. Labeling prompt did not enforce hierarchy (this is something minor)
 - The original `label_statements.py` prompt asks for basic values directly — no higher-order constraint
 - Higher-order labels are derived programmatically after the fact
 - The single-HO consistency we see is emergent, not enforced — which is actually reassuring
