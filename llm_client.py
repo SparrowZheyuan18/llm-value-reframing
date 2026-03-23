@@ -51,6 +51,21 @@ class LLMClient:
             region_name=region,
         )
 
+    @staticmethod
+    def _extract_text(content: list[dict]) -> str:
+        """Extract text from Bedrock converse response content blocks.
+
+        Handles standard text blocks and reasoning model formats (e.g., DeepSeek R1).
+        """
+        for block in content:
+            if "text" in block:
+                return block["text"]
+        # Fallback: reasoning-only response
+        for block in content:
+            if "reasoningContent" in block:
+                return block["reasoningContent"]["reasoningText"]["text"]
+        return content[0].get("text", str(content[0]))
+
     def chat(
         self,
         user_message: str,
@@ -76,7 +91,7 @@ class LLMClient:
             kwargs["system"] = [{"text": system_prompt}]
 
         response = self.client.converse(**kwargs)
-        return response["output"]["message"]["content"][0]["text"]
+        return self._extract_text(response["output"]["message"]["content"])
 
     def chat_with_history(
         self,
@@ -108,7 +123,7 @@ class LLMClient:
             kwargs["system"] = [{"text": system_prompt}]
 
         response = self.client.converse(**kwargs)
-        return response["output"]["message"]["content"][0]["text"]
+        return self._extract_text(response["output"]["message"]["content"])
 
 
 # Module-level singleton — shared across the project
