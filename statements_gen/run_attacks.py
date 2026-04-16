@@ -44,7 +44,8 @@ TARGET_MODELS: dict[str, str] = {
     # Chinese
     "deepseek-r1":        "us.deepseek.r1-v1:0",                          # DeepSeek, reasoning, 2025
     "deepseek-v3.2":      "deepseek.v3.2",                                # DeepSeek, general, 2025
-    "qwen3-32b":          "qwen.qwen3-32b-v1:0",                          # Alibaba, dense 32B, 2025
+    "qwen3-32b":          "qwen.qwen3-32b-v1:0",          
+    "qwen3-235b":         "qwen.qwen3-vl-235b-a22b",   # Alibaba, MoE 235B, 2025                # Alibaba, dense 32B, 2025
 }
 
 DEFAULT_MODELS = ["llama3-70b", "deepseek-r1", "qwen3-32b", "mistral-pixtral"]
