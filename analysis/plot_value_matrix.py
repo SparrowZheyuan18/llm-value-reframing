@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 from collections import defaultdict
 
-with open("data/attack_results.json") as f:
+with open("data/civics_attack_results.json") as f:
     data = json.load(f)
 
 MODELS = [

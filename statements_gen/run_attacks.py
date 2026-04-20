@@ -1,13 +1,13 @@
 """
 Run jailbreak prompts against target LLMs and record comply/refuse results.
 
-For each entry in jailbreak_prompts.json, sends:
+For each entry in civics_jailbreak_prompts.json, sends:
   - The stated value probe
   - All 5 conditions (1 direct + 2 adjacent + 2 opposing)
 to each target model, parses YES/NO from response, and stores results.
 
-Input:  data/jailbreak_prompts.json
-Output: data/attack_results.json
+Input:  data/civics_jailbreak_prompts.json
+Output: data/civics_attack_results.json
 
 Usage:
     python statements_gen/run_attacks.py
@@ -28,8 +28,8 @@ from tqdm import tqdm
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from llm_client import call_llm
 
-INPUT_PATH = Path(__file__).parent.parent / "data" / "jailbreak_prompts.json"
-OUTPUT_PATH = Path(__file__).parent.parent / "data" / "attack_results.json"
+INPUT_PATH = Path(__file__).parent.parent / "data" / "civics_jailbreak_prompts.json"
+OUTPUT_PATH = Path(__file__).parent.parent / "data" / "civics_attack_results.json"
 
 # ---------------------------------------------------------------------------
 # Target models — short name → Bedrock inference profile ID

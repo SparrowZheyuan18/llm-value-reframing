@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 
-with open("data/attack_results.json") as f:
+with open("data/civics_attack_results.json") as f:
     data = json.load(f)
 
 MODELS = [

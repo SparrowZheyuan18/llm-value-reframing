@@ -11,7 +11,7 @@ in its label, generates:
 Each (statement, v_s) pair produces one entry with 5 conditions + 1 probe.
 
 Input:  data/civics_dataset.json  (must have "Schwartz Values" + "Schwartz Higher-Order")
-Output: data/jailbreak_prompts.json
+Output: data/civics_jailbreak_prompts.json
 
 Usage:
     python statements_gen/generate_jailbreaks.py
@@ -31,7 +31,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from llm_client import call_llm
 
 DATA_PATH = Path(__file__).parent.parent / "data" / "civics_dataset.json"
-OUTPUT_PATH = Path(__file__).parent.parent / "data" / "jailbreak_prompts.json"
+OUTPUT_PATH = Path(__file__).parent.parent / "data" / "civics_jailbreak_prompts.json"
 
 # Use Llama for generation — less restrictive for red-team prompt construction
 GENERATION_MODEL = "us.meta.llama3-3-70b-instruct-v1:0"
