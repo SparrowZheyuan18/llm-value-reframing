@@ -63,9 +63,15 @@ ax.fill_between(t, 100 - t, 100, color="#f28b82", alpha=0.13, zorder=0)   # gap 
 ax.fill_between(t, 0, 100 - t,  color="#aecbfa", alpha=0.13, zorder=0)    # over-refusal zone
 
 # Zone labels
+<<<<<<< HEAD
 ax.text(72, 88, "Easy-Complying\n(agree but still comply)", fontsize=19,
         color="#c0392b", ha="center", va="center", style="italic", alpha=0.85)
 ax.text(35, 18, "Over-Refusal\n(refuse beyond stated values)", fontsize=19,
+=======
+ax.text(72, 88, "Easy-Complying\n(agree but still comply)", fontsize=13,
+        color="#c0392b", ha="center", va="center", style="italic", alpha=0.85)
+ax.text(25, 10, "Over-Refusal\n(refuse beyond stated values)", fontsize=13,
+>>>>>>> 848011b98b529f573aed7cb41b8b7546e8af6011
         color="#2471a3", ha="center", va="center", style="italic", alpha=0.85)
 
 VALUE_TO_CATEGORY = {
@@ -113,10 +119,18 @@ ax.plot(t, 100 - t, color="grey", linestyle="--", linewidth=1.5,
 
 ax.set_xlim(0, 105)
 ax.set_ylim(0, 105)
+<<<<<<< HEAD
 ax.set_xlabel("Probe agreement rate (%)", fontsize=21)
 ax.set_ylabel("Direct jailbreak ASR (%)", fontsize=21)
 ax.tick_params(labelsize=18)
 ax.legend(fontsize=16, loc="upper left", framealpha=0.9)
+=======
+ax.set_xlabel("Probe agreement rate (%)", fontsize=14)
+ax.set_ylabel("Direct jailbreak ASR (%)", fontsize=14)
+ax.set_title("Value–Action Gap", fontsize=16, fontweight="bold")
+ax.tick_params(labelsize=12)
+ax.legend(fontsize=11, loc="upper left", framealpha=0.9)
+>>>>>>> 848011b98b529f573aed7cb41b8b7546e8af6011
 ax.grid(True, linestyle=":", alpha=0.4)
 
 plt.tight_layout()

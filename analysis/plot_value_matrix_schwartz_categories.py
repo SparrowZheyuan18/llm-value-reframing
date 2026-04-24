@@ -31,6 +31,7 @@ CATEGORIES = [
     "Openness to Change",
 ]
 
+<<<<<<< HEAD
 CATEGORY_ABBREV = {
     "Self-Transcendence": "ST",
     "Conservation":       "CO",
@@ -38,6 +39,8 @@ CATEGORY_ABBREV = {
     "Openness to Change": "OC",
 }
 
+=======
+>>>>>>> 848011b98b529f573aed7cb41b8b7546e8af6011
 VALUE_TO_CATEGORY = {
     "Universalism":    "Self-Transcendence",
     "Benevolence":     "Self-Transcendence",
@@ -90,7 +93,11 @@ def build_category_matrix(entries, distance_rank=None):
 
 
 def plot_category_matrices(data, dataset_label, fname_prefix, distance_rank=None, dr_label="All framed", dr_suffix="all"):
+<<<<<<< HEAD
     fig, axes = plt.subplots(2, 4, figsize=(20, 11))
+=======
+    fig, axes = plt.subplots(2, 4, figsize=(16, 9))
+>>>>>>> 848011b98b529f573aed7cb41b8b7546e8af6011
     axes = axes.flatten()
 
     cmap = plt.cm.YlOrRd
@@ -103,7 +110,11 @@ def plot_category_matrices(data, dataset_label, fname_prefix, distance_rank=None
             distance_rank=distance_rank,
         )
 
+<<<<<<< HEAD
         ax.imshow(mat, cmap=cmap, norm=norm, aspect="equal")
+=======
+        ax.imshow(mat, cmap=cmap, norm=norm, aspect="auto")
+>>>>>>> 848011b98b529f573aed7cb41b8b7546e8af6011
 
         for i in range(len(CATEGORIES)):
             for j in range(len(CATEGORIES)):
@@ -111,6 +122,7 @@ def plot_category_matrices(data, dataset_label, fname_prefix, distance_rank=None
                     continue
                 val = mat[i, j]
                 ax.text(j, i, f"{val:.0f}%", ha="center", va="center",
+<<<<<<< HEAD
                         fontsize=14, fontweight="bold",
                         color="white" if val > 30 else "black")
 
@@ -125,12 +137,36 @@ def plot_category_matrices(data, dataset_label, fname_prefix, distance_rank=None
             ax.set_ylabel("Framing category (v_f)", fontsize=13)
         if ax_idx >= 4:
             ax.set_xlabel("Statement category (v_s)", fontsize=13)
+=======
+                        fontsize=10, fontweight="bold",
+                        color="white" if val > 30 else "black")
+
+        ax.set_xticks(range(len(CATEGORIES)))
+        ax.set_xticklabels(CATEGORIES, rotation=30, ha="right", fontsize=9)
+        ax.set_yticks(range(len(CATEGORIES)))
+        ax.set_yticklabels(CATEGORIES, fontsize=9)
+        ax.set_title(model_label, fontsize=12, fontweight="bold", pad=6)
+
+        if ax_idx % 4 == 0:
+            ax.set_ylabel("Framing category (v_f)", fontsize=9)
+        if ax_idx >= 4:
+            ax.set_xlabel("Statement category (v_s)", fontsize=9)
+>>>>>>> 848011b98b529f573aed7cb41b8b7546e8af6011
 
     axes[-1].set_visible(False)
     cbar = fig.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=cmap),
                         ax=axes[-1], fraction=0.6, pad=0.05)
+<<<<<<< HEAD
     cbar.set_label("ASR (%)", fontsize=16)
     cbar.ax.tick_params(labelsize=13)
+=======
+    cbar.set_label("ASR (%)", fontsize=11)
+
+    fig.suptitle(
+        f"Value Conflict Matrix — {dataset_label} · {dr_label}\n"
+        "(rows = framing category, cols = statement category; Schwartz higher-order)",
+        fontsize=13, fontweight="bold", y=1.01)
+>>>>>>> 848011b98b529f573aed7cb41b8b7546e8af6011
 
     plt.tight_layout()
     fname = f"analysis/value_matrix_schwartz_{fname_prefix}_{dr_suffix}"
