@@ -66,17 +66,13 @@ for (model_id, model_label), color in zip(MODELS, colors):
     ax.fill(angles, values, color=color, alpha=0.07)
 
 ax.set_xticks(angles[:-1])
-ax.set_xticklabels(VALUE_ORDER, fontsize=10)
+ax.set_xticklabels(VALUE_ORDER, fontsize=15)
 ax.set_ylim(0, 100)
 ax.set_yticks([25, 50, 75, 100])
-ax.set_yticklabels(["25%", "50%", "75%", "100%"], fontsize=8, color="grey")
-ax.legend(loc="upper right", bbox_to_anchor=(1.35, 1.15), fontsize=10)
+ax.set_yticklabels(["25%", "50%", "75%", "100%"], fontsize=12, color="grey")
+ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.18),
+          fontsize=12, ncol=4, framealpha=0.9)
 
-fig.suptitle(
-    "Probe Agreement Rate by Statement Value (v_s)\n"
-    "Combined dataset (CIVICS + PluriHarms)",
-    fontsize=13, fontweight="bold", y=1.04,
-)
 plt.tight_layout()
 plt.savefig("analysis/direct_asr_radar.pdf", format="pdf", bbox_inches="tight")
 plt.savefig("analysis/direct_asr_radar.png", dpi=150, bbox_inches="tight")
